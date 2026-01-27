@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {getCities} = require('./public/javascripts/cityShuffler');
+const {getCities} = require('../public/javascripts/cityShuffler');
 
 router.get('/cities', (req, res) => {
     const cities = getCities();

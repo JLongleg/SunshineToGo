@@ -1,4 +1,4 @@
-import weather from "../data/weather.json" with { type: "json"};
+const weather = require("../data/weather.json");
 
 function getCities() {
     var curWeather = [...weather];
