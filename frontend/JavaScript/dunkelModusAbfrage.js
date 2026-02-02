@@ -15,6 +15,8 @@ if (dunkelModus1) {
     if(window.location.pathname.includes("sunshine_to_go_menu.html"))  {
     /*relevant, damit die Checkbox checked bleibt*/ 
     checkKasten.checked = true;}
+    else if (this.window.location.pathname == "/") {
+    checkKasten.checked = true;}
     else 
     console.log("DARKMODE ON");
     document.documentElement.classList.add('dark-mode');

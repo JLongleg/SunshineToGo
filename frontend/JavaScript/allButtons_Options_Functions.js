@@ -7,7 +7,7 @@
 // verhindern, dass beim Abspielen von Script, Scripte
 // von fremd HTMLs verwendet werden:
 
-if (window.location.pathname.includes("sunshine_to_go_menu.html")) {
+if (window.location.pathname.includes("sunshine_to_go_menu.html" )) {
     console.log("Willkommen im Menubereich");
     imMenu() /* Menubereich */
 }
@@ -20,6 +20,11 @@ else if (window.location.pathname.includes("index.html")) {
 else if (window.location.pathname.includes("tutorial.html")) {
     console.log("Willkommen bei der Dokumentation")
     imTutorial() /* Tutorialbereich */
+}
+
+else if (window.location.pathname.includes("/")) {
+    console.log("Willkommen auf der Startseite");
+    imMenu() /* Menubereich */
 }
 /*
 ==========================================================
