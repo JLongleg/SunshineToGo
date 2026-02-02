@@ -1,17 +1,22 @@
 // Bereich für die Speicherung von lokalen Daten
+// Es wird ein Wert in LocalStorage zwischen 0 und 1
 
-// SETTER:
 export const soundSpeicherung = (volume) => { 
-    window.localStorage.setItem("soundWert", volume)
+  window.localStorage.setItem("soundWert", volume) // SETTER:
 };
 
-// GETTER:
-export const ladeSound = () => {
+// Eine Funktion zum Laden des gespeichertem Werts
 
-const gespeicherterWert = window.localStorage.getItem("soundWert")
+export const ladeSound = () => { // GETTER:
 
- if (gespeicherterWert !== null) {
+  const gespeicherterWert = window.localStorage.getItem("soundWert")
+
+  // Wenn man die Anwendung das erste Mal, öffnet
+  // Soll er ein Standartwert annehmen. Null mag er nicht =c
+
+  if (gespeicherterWert !== null) {
     return parseFloat(gespeicherterWert);
   } else
     return 0.5;
 };
+

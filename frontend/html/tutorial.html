@@ -1,0 +1,212 @@
+<!--
+==============================================================
+
+Tutorial:
+
+Quelle für das Home Icon:
+https://www.reshot.com/free-svg-icons/item/home-X27HUJS9EC/
+
+==============================================================
+-->
+
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunshine To Go - Projekt Dokumentation</title>
+    <script src="../JavaScript/dunkelModusAbfrage.js"></script>
+</head>
+
+<!-- Das Musiklied heißt end -->
+
+<body>
+    <audio autoplay loop id="endSound">
+        <source src="../mp3/218204__valentinsosnitskiy__ending.mp3" type="audio/mp3">
+    </audio>
+
+
+    <div class="umgebung">
+
+        <header>
+            <h1>Sunshine To Go</h1><br>
+            <a href="../html/sunshine_to_go_menu.html"><button>Zurück zum Menü</button></a>
+            <p class="untertitel">Tutorial und Entwicklungs-Status</p>
+        </header>
+
+        <section class="card">
+            <h3>Hallo zusammen!</h3>
+            <div class="bildVerhalten">
+                <img class="imgCharacter" src="../bilder/Familienbild2.jpg" alt="Vier Charakatere, eine Wolkenfrau, ein Regenmann, ein Sonnenjunge und ein Schneemädchen, die in die Kamera winken">
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Spielvorstellung: Charaktere</h2>
+            <div class="cardKleinCard">
+                <div class="card2">
+                    <strong>Tiffany</strong><br><br>
+                    <code>Spionin</code>, Wolkenexpertin und Abenteuerin:
+                    Ohne ihre Wolkenfrisur geht gar nichts!
+                    Bei manchen Einsätzen, weiß sie selbst nicht, wohin sie fliegt.
+                </div>
+                <div class="card2">
+                    <strong>Snowella</strong><br><br>
+                    <code>Kälteliebhaberin</code>, Mützenträgerin und Schlitten-Pilotin:
+                    steigt gerne mal in den Flieger ohne wirklich zu wissen wohin.
+                </div>
+                <div class="card2">
+                    <strong>Jasun</strong><br><br>
+                    <code>Reisegeist</code>, Flammenschnell und Jahreskartenbesitzer, er gurkt gerne durch die Welt, wie es ihm gefällt.
+                </div>
+                <div class="card2">
+                    <strong>Mr. Rain</strong><br><br>
+                    <code>Zahlenaktrobat</code>, Meteorologe und Vergesslichkeits-Weltmeister:<br>
+                    Auf dem Weg zu seiner Nichte (die Spionin).
+                </div>
+            </div>
+            <br>
+        </section>
+
+        <section class="card">
+            <h3>Hintergrund</h2>
+                <div class="card2">
+                    <strong>Fluggesellschaft</strong><br><br>
+                    Willkommen am neugebautem Flughafen <code>Sunshine To Go</code>! <br>
+                    Als neuer Mitarbeiter bist du für die Wünsche der Fluggäste zuständig. <br>
+                    Dabei haben die Fluggäste die <code>unterschiedlisten</code> Vorstellung von <br>
+                    Temperatur: Der eine möchte es kalt haben, der andere eher warm.<br>
+                    <br>
+                    Oh, und wundere dich nicht über die fehlende Überdachung. Es scheint<br>
+                    sehr teuer zu sein, in den Wolken zu bauen.
+                    <br>
+                    <br>
+                    <br>
+                    <code>Du SCHAFFST DAS! <br>
+                        Die Vier freuen sich schon auf dich!<br>
+                        THANK YOU FOR TRAVELING WITH SUNSHINE TO GO!
+                    </code>
+                </div>
+        </section>
+        
+        <section class="card">
+            <h2>Spielmechanik & Tutorial</h2>
+
+            <h3>Ablauf</h3>
+            <p>Es gibt eine Auswahl von drei Städten: Gate 1, Gate 2 und Gate 3. Die groß geschriebene Zahl gibt dabei die Wunschtemperatur der Fluggäste an. Mit der Maus kannst du die jeweiligen Gates anklicken.</p>
+
+            <div class="card2">
+                    <strong>Wie funktioniert das?</strong><br><br>
+                    1. <strong>Klick das richtige Tor:</strong> Überlege dir, welches Gate zur Temperatur der Figur passt.<br>
+                    2. <strong>Du musst schnell sein!</strong> Kurz vor der Kreuzung nimmt deine Figur den gewählten Weg.<br>
+                    3. <strong>Highscore:</strong> Versuche, so viele richtige Temperaturen wie möglich zu erraten!<br>
+                    4. <strong>Punkte:</strong> Sammle dabei bis zu 5 Punkte.<br>
+                    <strong>Noch ein Tipp:</strong> Du kannst das Gate statt mit der Maus auch mit den Tasten 1, 2 oder 3 auswählen!
+                </div>
+
+            <h3>Entscheidungsmöglichkeit</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Antwort</th>
+                        <th>Konsequenz</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Richtiges Gate</td>
+                        <td>Du bekommst einen Punkt</td>
+                    </tr>
+                    <tr>
+                        <td>Falsches Gate</td>
+                        <td>Du bekommst keinen Punkt</td>
+                    </tr>
+                </tbody>
+                
+            </table>
+            <br>
+
+            <br>
+            <button class="btnHome" ><img
+                    src="../bilder/icons/reshot-icon-home-X27HUJS9EC.svg" alt="Home-Icon" width="42"
+                    height="42"></img></button>
+        </section>
+
+        <section class="card">
+            <h2>Entwicklungs-Status</h2>
+            <ul class="aufgabenBereich">
+                <li>Start-Buttons erstellen <span class="label GREEN">Erledigt</span></li>
+                <li>Onclick Funktionen ersetzen <span class="label GREEN">Erledigt</span></li>
+                <li>Beenden-Knopf <span class="label GREEN">Erledigt</span></li>
+                <li>Layout Divs für das Menu erstellen <span class="label GREEN">Erledigt</span></li>
+                <li>Abstraktion Menu-Button-Zurück <span class="label GREEN">Erledigt</span></li>
+                <li>Modulare Datenstruktur (Soundspeicherung) <span class="label GREEN">Erledigt</span></li>
+                <li>Lokaler Speicher (Persistent) <span class="label GREEN">Erledigt</span></li>
+                <li>Drei Charaktere erstellen <span class="label GREEN">Erledigt</span></li>
+                <li>Server aufsetzen <span class="label GREEN">Erledigt</span></li>
+                <li>Wetterdaten empfangen <span class="label GREEN">Erledigt</span></li>
+                <li>3D Umgebungswelt <span class="label GREEN">Erledigt</span></li>
+                <li>Tutorialanzeige <span class="label GREEN">Erledigt</span></li>
+                <li>Optionen (Spieleinstellungen) <span class="label GREEN">Erledigt</span></li>
+                <li>Design & Menüs <span class="label GREEN">Erledigt</span></li>
+                <li>Pause-Menü <span class="label GREEN">Erledigt</span></li>
+                <li>Handy-Tauglichkeit <span class="label GREEN">Erledigt</span></li>
+                <li>Punktesystem & Ranking <span class="label GREEN">Erledigt</span></li>
+                <li>Highscore Bereich <span class="label GREEN">Erledigt</span></li>
+                <li>darkMode <span class="label GREEN">Erledigt</span></li>
+                <li>Punkte <span class="label GREEN">Erledigt</span></li>
+                <li>Ticket <span class="label GREEN">Erledigt</span></li>
+                <li>Tutorial <span class="label GREEN">Erledigt</span></li>
+
+
+            </ul><br>
+            <button class="btnHome"><img
+                    src="../bilder/icons/reshot-icon-home-X27HUJS9EC.svg" alt="Home-Icon" width="42"
+                    height="42"></img></button>
+        </section>
+
+        <section class="card">
+            <h2>Apollinaire Calligram</h2>
+            <div class="eifel-umgebung">
+                <pre class="art">
+             S
+             A
+            LUT
+             M
+            O N
+            D  E
+            DONT
+          JE SUIS
+          LA  LAN
+          G U E  É
+         L O Q U E N
+        TE      QUESA
+       B  O  U  C  H  E
+      O        P A R I S
+     T I R E   ET   TIRERA
+    T O U            JOURS
+   AUX                  A  L
+  LEM                    ANDS
+</pre>
+                <p style="margin-top:20px; font-style: italic;">- Apollinaire</p>
+            </div>
+            <br>
+            <button class="btnHome"><img
+                    src="../bilder/icons/reshot-icon-home-X27HUJS9EC.svg" alt="Home-Icon" width="42"
+                    height="42"></img></button>
+        </section>
+
+    </div>
+
+
+
+    <link rel="stylesheet" href="../CSS/tutorial.css">
+    </link>
+    <script src="../JavaScript/allButtons_Options_Functions.js"></script>
+    <script type="module" src="../JavaScript/menuSound.js"></script>
+    <script src="../JavaScript/localStorage.js"></script>
+
+</body>
+
+</html>

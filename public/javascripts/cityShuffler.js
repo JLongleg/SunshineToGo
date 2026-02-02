@@ -1,6 +1,6 @@
 const weather = require("../data/weather.json");
 
-function getCities() {
+function cityShuffler() {
     var curWeather = [...weather];
     var randNumber;
     var shuffledCities = new Array(weather.length);
@@ -14,4 +14,4 @@ function getCities() {
     return shuffledCities;
 }
 
-module.exports = {getCities};
+module.exports = {cityShuffler};

@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Title</title>
-  <!-- <link rel="stylesheet" href="style.css"> -->
 
   <!-- Von https://threejs.org/manual/#en/installation -->
   <!-- SETUP Three.js -->
+
   <script type="importmap">
 {
   "imports": {
@@ -19,50 +19,143 @@
   }
 }
 </script>
+    
+<!-- Quellen -->
+  <script type = "module" src="../JavaScript/allButtons_Options_Functions.js" defer></script>
+  <script type = "module" src="../JavaScript/localStorage.js"></script>
+  <script type = "module" src="../JavaScript/dunkelModusAbfrage.js"></script>
 
+  <script type = "module" src="../JavaScript/localStorage.js"></script>
+  <script type = "module" src="../JavaScript/dunkelModusAbfrage.js"></script>
+  <script type = "module" src="../JavaScript/menuSound.js"></script>
+  <link rel="stylesheet" href="../CSS/gameplayAnzeigeDunkelModus.css"></link>
+  <link rel="stylesheet" href="../CSS/optionsfenster.css"></link>
 
-
-
-
-  <!-- Accessibility Referenz-->
 
   <style>
-
-  /* Importing the a3model's (for accessibility) css file
+    /* Importing the a3model's (for accessibility) css file
   source: https://www.w3schools.com/cssref/atrule_import.php */
 
     @import url("https://cdn.jsdelivr.net/npm/a3model@1.0.8/src/index.css");
 
-    
+    /* Ref '04'*/
+    .ErgebnisPopUpWrapper {
+      background-color: black;
+      opacity: 0;
+      position: fixed;
+      top: 0;
+      /* 0: streched across whole page */
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transition: all 0.3s ease-in-out;
+      z-index: -1;
+      /* Element wird im Hintergrund (Layer -1) sein */
 
+      display: flex;
+      /*to keep innerbox in center */
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ErgebnisPopUpWrapper-inner {
+      background-color: yellow;
+      border-radius: 5px;
+      box-shadow: 0, 1px, 4px, black;
+      padding: 15px, 25px;
+      text-align: center;
+      width: 380px;
+    }
+
+    .ErgebnisPopUpWrapper.open {
+      opacity: 1;
+      z-index: 999;
+      /*  (Layer 999) Element wird im Vordergrund aller Layer sein*/
+
+    }
+
+    .ErgebnisPopUpWrapper-inner {
+      background-color: yellow;
+      border-radius: 5px;
+      box-shadow: 0, 1px, 4px, black;
+      padding: 15px, 25px;
+      text-align: center;
+      width: 380px;
+      background-image: url('Coffee_with_Sunshinelogo.jpg')
+    }
+
+    .punkteAnzeige {
+      background-color: black;
+      opacity: 80%;
+      color: white;
+      position: fixed;
+      font-size: 25px;
+    }
   </style>
-
-
 
 </head>
 
 <body>
 
+  
+  <!-- PausenMenuButton -->
+  <button id="btnPauseMenuId" class="btnPauseMenu"><img
+                    src="../bilder/icons/reshot-icon-home-X27HUJS9EC.svg" alt="Home-Icon" width="42"
+                    height="42"></svg>
+  </button>
 
-  <div id="a3canvas"> <!-- Accessibility -->
+<!-- Optionsfenster -->
 
-    <canvas id="webgl"></canvas> <!-- Accessibility -->
+    <dialog id="pausenMenu" class="openWindowOptionClass">
+      <div class="dialogStyle">  
+      <h1>Optionen</h1>
+        <section>
+            <!---Audioregler-->
+            <div class="slidecontainer">
+                <p>Soundregler:</p><input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+                <br>
+                <audio autoplay loop id="lenaSound">
+                        <source
+                        src="../mp3/Cup_of_Sunshine.mp3"
+                        type="audio/mp3">
+                </audio>
+                <br>
+            </div>
+        </section>
+        <button id="opSchiessen">Optionsfenster schließen</button>
+        <a href="../html/sunshine_to_go_menu.html">    
+      <button>Zurück zum Menu</button></a>
+      </div>
+    </dialog>
 
-  </div> <!-- Accessibility -->
+<!-- Punkteanzeige -->
 
-  <!-- Muted for Accessibility Test
-     <script type="module" src="main.js" defer></script> 
-     -->
+<div class="punkteAnzeige">
+  <p>Punktestand:<span id="punkteZahl"> 0</span></p>
+</div>
 
-  <script type="module" src="/Gameplay/main.js" defer></script>
 
-  <!-- Ende Accessibility Teil 2-->
 
-  <!-- Muted für Accessibility Test 
-  Sunshine Game
-  <script type="module" src="main.js"></script>
-  -->
+  <div id="a3canvas"> <!-- Accessibility: Canvas-Element wird in Div-Element gepackt -->
 
+    <canvas id="webgl"></canvas> 
+
+  </div> 
+
+
+
+  <script type="module" src="main.js" defer></script>
+
+
+
+  <!-- Result Pop-Up, Ref '04'-->
+  <div class="ErgebnisPopUpWrapper" , id="ErgebnisPopUpWrapper">
+    <div class="ErgebnisPopUpWrapper-inner">
+      <h2> Cool!</h2>
+      <p class="ResultatPopUp">Jedenfalls kam jeder irgendwohin! <span id="punkteZahlResultat">0</span></p>
+      <button id="closeErgebnisPopUpWrapper">OK!</button>
+    </div>
+  </div>
 </body>
 
 </html>

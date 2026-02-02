@@ -12,10 +12,39 @@
             /*Außenabstand und Innenanstand*/
             margin: 0;
             padding: 0;
-            
+        
             /* Kein Scrollen
             overflow: hidden;*/
+        }
 
+/* =========================================
+   STANDARTDFARBEN
+   ========================================= */
+
+
+        :root {
+        /*standartFarben*/
+        --standarttext:rgb(255, 255, 255);
+        --durchsichtig:rgba(0, 0, 0, 0);
+        /*Hintergrundbild*/
+        --hgbFarben: rgba(30, 0, 255, 0.138); 
+        --titelfeld: rgba(30, 0, 255, 0.138);
+        --hgbFarbenDM:rgba(0, 0, 0, 0.5); 
+        --FarbeFigcaption: rgb(255, 255, 255);
+        }
+
+/* =========================================
+   DUNKELMODUS
+   ========================================= */
+
+        :root.dark-mode {
+        /* standartFarben */
+        --standarttext:rgb(217, 255, 0);
+        --durchsichtig:rgba(0, 0, 0, 0);
+        /* Hintergrundbild färben */
+        --hgbFarben: rgba(8, 3, 41, 0.466); 
+        --titelfeld: rgba(37, 35, 56, 0.26);
+        --FarbeFigcaption: rgb(255, 255, 255);
         }
 
 /* =========================================
@@ -31,16 +60,17 @@
             flex-direction: column;
 
             /* Hintergrundfarbe, Schriftfarbe und Schriftart */
-            background-color: orange;
-            color: white;
+            color: var(--standarttext);
             font-family: Arial, sans-serif;
             
             background-image: 
-            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* Der Schleier */
-            url('../bilder/hintergrundbild/flughafen.jpg'); /* Das Hintergrundbild */
+            /*Schleier für das Hintergrundbild*/
+            /*Komma relevant für den Hintergrund*/
+            linear-gradient(var(--hgbFarben), var(--hgbFarben)),
+            url('../bilder/hintergrundbild/Pilot.PNG'); 
 
-            background-size: cover;      /* Füllt alles aus */
-            background-position: center; /* Zentriert */
+            /* Bild wird zurecht zentriert */
+            background-size: cover;
            
         }
 
@@ -49,109 +79,106 @@
    ========================================= */
 
         .titelVonMenu {
-            margin: 0;
             /* Entfernt Standard-Ränder */
+            margin: 0;
+            /* Bissl Luft oben und unten */
             padding: 10px 0;
-            /* Ein bisschen Luft oben/unten */
+            /* Text wird in die Mitte positioniert */
             text-align: center;
-            /* Zentriert den Text */
+            /* Höhe automatisch */
             height: auto;
-            /* Nimmt sich so viel Platz wie nötig */
-            background-color: #333;
-            /* Optional: Hintergrund für Titel */
+             /* Hintergrund für Titel */
+            background-color: var(--titelfeld);
+           
         }
 
 /* =========================================
-   HAUPT-CONTAINER
+   HAUPT-CONTAINER => für die Bildauswahl
    ========================================= */
 
         .container {
-            /* Volle Bildschirmhöhe (100vh) und zieht 60px ab */
+            /* Volle Bildschirmhöhe 100% des sichtbaren Browsers - 60px */
             height: calc(100vh - 60px);
-            /*Erlaubt es dem Container, kleiner zu werden als sein Inhalt*/
-            min-height: 0;
             /* Erstellt ein Rasterlayout mit 3 Spalten und 2 Reihen */
             display:grid;
             /* Definiert das Raster mit 3 Spalten und 2 Reihen */
-            /*fraction unit*/
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(2, 1fr);
-            /*Abstand zwischen dem Rasterzellen*/
-            gap: 5px;
-            /*Abstand vom Außenrand*/
-            padding: 50px;
-            /*Abstand v*/
-            box-sizing: border-box;
-            
         }
 
 /* =========================================
-   Die Kacheln
+   Die Kacheln (Felder in denen die Bilder sind)
    ========================================= */
 
         figure.bild {
-            /*Werte auf Null bringen*/
+            /*Rand entfernen*/
             margin: 0;
-            padding: 0;
+
             /*Die Figur füllt extakt 100% der Rasterzelle aus*/
             width: 100%;
             height: 100%;
+
             /*Alles was über den Rand ragt, wird abgeschnitten*/
             overflow: hidden;
             /*Schichtmanagment*/
             position: relative;
-            background-color: #ffffff00;
-        }
+            }
 
 /* =========================================
-   Die Bilder
+   Bilder aufstellung
    ========================================= */
 
         img {
             width: 100%;
             height: 100%;
             
+            /*Behaält seine Seitenverältnis,
+            sonst gestreckt*/
             object-fit: contain;
-            object-position: center bottom;
-            display: block;
-            /*0.3sek */
-        
-            /*Schichtmanagment*/
+
+            /*positions loslösung notwenig,
+            damit z.index funktioniert.
+            => liegt vor dem Text durch 2
+            z. ist dabei die Z-Achse */
             position: relative;
-            z-index: 2; /*liegt vor dem Text*/
+            z-index: 2; 
             
             /*Bearbeitung der Schrift*/
-             /* display: none !important */
-
+            /* display: none !important */
         }
 
+
 /* =========================================
-   Bildunterschrift
+   Bildunterschrift = Schrift hinter dem Bild
    ========================================= */
 
         figcaption {
+
+            /* Orientiert sich am Elternelement
+            => Container */
             position: absolute;
             top: 0 ; 
             left: 0;
             width: 100%;
             height: 100%;
 
-            /*liegt unter dem Bild*/
-            z-index: 1; 
-
+            /*zentrierung des Textes*/
             display: flex;
             justify-content: center;
             align-items: center;
 
-            /*Optik*/
-            color: white;
-            font-size: 3em;
-            font-weight: bold;
-            text-align: center;
-            color: #ffffff;
-            margin-top: 10px;
-            text-shadow: 2px 2px 4px #000000;
+            /*liegt unter dem Bild*/
+            z-index: 1;
 
+            /*Optik*/
+            color: var(--FarbeFigcaption);
+            text-shadow: 4px 4px 8px #000000;
+            /*Text*/
+            font-size: clamp(1rem, 3.5vw, 3.5rem);
+            /*fettgedruckt*/
+            font-weight: bold;
+            /*'Spiel starten zentrieren*/
+            text-align: center;
 
         }
 
@@ -165,12 +192,6 @@
             /* Vergrößerung der Bilder beim drübergehen (Hover) */
             transform: scale(0.9);
             /* Transparenz der Bilder bei drübergehen (Hover) */
-            opacity: 0.5;
+            opacity: 0.2;
+            
         }
-
-        .figcaption:hover {
-            transition: transform 10s ease, opacity 10s ease;
-            transform: scale(0.1); 
-        }
-
-

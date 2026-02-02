@@ -1,0 +1,331 @@
+    /*
+    ==============================================================
+    Grundlagen und Basis
+    ==============================================================
+    */
+
+    /* 
+    Farbwahl (Root -> var) sind Keywords
+    Standartfarben
+    */
+
+ :root {
+  /* Textfarben: */
+   --hauptFarbe: #f59e0b;
+   /* Akzentfarbe 30% Regel */
+   --titelFarbe: #152a23;
+   --untertitelfarbe: #ffffff;
+   --codingKonversationsText: #000000;
+   --h2texte: #000000;
+   --standarttext: #334155;
+   --herausstechenderText: rgba(225, 222, 55, 0.699);
+
+   /* Feldfarben: */
+   --feldFarbe: #ffffff;
+   --border: #e2e8f0;
+   --card2Farbe: #f1f5f938;
+   
+   /* Warnfarben: */
+   --success: #10b981;
+   --warning: #f59e0b;
+   --todo: #94a3b8;
+
+   /* Hintergrund: */
+   --hgbFarbe1: rgba(8, 3, 41, 0);
+   --hgbFarbe2: rgba(26, 10, 128, 0.534);
+
+   /* Tabelle: */
+   --thhintergrund: #f8fafc;
+
+   /* Icon: */
+   --hintergrundButton: #ffffff00;
+
+   /* Sonstiges: */
+   --eifelTurmFarbe: #000;
+   --artHintergrundFarbe: #ffffff;
+
+ }
+
+ /* =========================================
+   DUNKELMODUS
+   ========================================= */
+
+ :root.dark-mode {
+   /* Textfarben: */
+   --hauptFarbe: #5e3e09;
+   --titelFarbe: #b3ff00;
+   --untertitelfarbe: #ffffff;
+   --codingKonversationsText: #000000;
+   --h2texte: #ffffff;
+   --standarttext: #ffffff;
+   --herausstechenderText: rgba(255, 251, 0, 0.432);
+
+   /* Feldfarbe: */
+   --feldFarbe: rgba(87, 86, 86, 0.301);
+   --border: #e2e8f0;
+   --card2Farbe: #c0c0c0;
+
+   /* Warnfarben: */
+   --success: #0a7753;
+   --warning: #c5009ac7;
+   --todo: #5d6774;
+
+   /* Hintergrund: */
+   --hgbFarbe1: rgba(8, 3, 41, 0.616);
+   --hgbFarbe2: rgba(26, 10, 128, 0.534);
+
+   /*Tabelle*/
+   --thhintergrund: #047bf34b;
+
+   /*Icon*/
+   --hintergrundButton: #b3ff00d2;
+
+   /* Sonstiges */
+   --eifelTurmFarbe: #ffee00;
+   --artHintergrundFarbe: #000000;
+
+ }
+
+/* =========================================
+   Untertitel
+   ========================================= */
+
+ .untertitel {
+   color: var(--untertitelfarbe);
+   font-size: 1.2em;
+ }
+/* =========================================
+   body: Allg. Schriftart, Farbe, Abstand,
+   ========================================= */
+
+ body {
+   margin: 0;
+   font-family: 'Segoe UI', system-ui, sans-serif;
+   color: var(--standarttext);
+   /* Textzeile */
+   line-height: 1.6;
+   padding: 40px;
+   /*Hintergrundbild*/
+   background-image:
+     linear-gradient(var(--hgbFarbe2), var(--hgbFarbe1)),
+     url('../bilder/hintergrundbild/flughafen.png');
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   min-height: 100vh;
+ }
+
+/* =========================================
+   Icon
+   ========================================= */
+
+ .btnHome {
+   padding: 0;
+   cursor: pointer;
+   display: flex;
+ }
+
+/* =========================================
+   Bild der Charaktere
+   ========================================= */
+
+ .imgCharacter {
+  border: 4px solid var(--hauptFarbe);
+  border-radius: 50px;
+ }
+
+/* =========================================
+   Container aller anderen Container 
+   ========================================= */
+
+ .umgebung {
+   max-width: 900px;
+   margin: auto;
+   display: grid;
+   gap: 40px;
+ }
+
+/* =========================================
+   Mehrere Überschriften
+   ========================================= */
+
+ h1 {
+   font-size: 2.5rem;
+   color: var(--titelFarbe);
+   border-bottom: 4px solid var(--hauptFarbe);
+   display: inline-block;
+   margin-bottom: 0.5em;
+ }
+
+ h2 {
+   font-size: 1.5rem;
+   margin-top: 0;
+   border-left: 5px solid var(--hauptFarbe);
+   display: inline-block;
+   padding-left: 15px;
+   color: var(--h2texte);
+ }
+
+ h3 {
+   font-size: 1.1rem;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   margin-top: 20px;
+ }
+
+/* =========================================
+   Container Card und Card2
+   ========================================= */
+
+ .card {
+   background: var(--feldFarbe);
+   padding: 25px;
+   border-radius: 12px;
+   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+   border: 1px solid var(--border);
+ }
+
+ .card2 {
+   background: var(--card2Farbe);
+   padding: 15px;
+   border-radius: 8px;
+   font-size: 0.9rem;
+   color: var(--codingKonversationsText);
+ }
+
+ .card2 strong {
+   color: var(--hauptFarbe);
+   margin-bottom: 5px;
+ }
+
+ .cardKleinCard {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   gap: 15px;
+ }
+
+/* =========================================
+   Code regeln als betonung für den Text 
+   ========================================= */
+
+ code {
+   background: var(--herausstechenderText);
+   padding: 2px 5px;
+   border-radius: 4px;
+   font-family: monospace;
+   font-weight: bold;
+ }
+
+/* =========================================
+   Tabellen & Erledigtfelder
+   ========================================= */
+
+ ul.aufgabenBereich {
+   list-style: none;
+   padding: 0;
+ }
+
+ ul.aufgabenBereich li {
+   padding: 10px 0;
+   border-bottom: 1px solid var(--border);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+ }
+
+ .label {
+   font-size: 0.75rem;
+   padding: 4px 10px;
+   border-radius: 20px;
+   font-weight: bold;
+   color: white;
+   min-width: 80px;
+   text-align: center;
+ }
+
+ .GREEN {
+   background-color: var(--success);
+ }
+
+ .RED {
+   background-color: var(--warning);
+ }
+
+ .YELLOW {
+   background-color: var(--todo);
+ }
+
+ .btnHome {
+   background-color: var(--hintergrundButton);
+   border-radius: 8px;
+ }
+
+/* =========================================
+   Komische Kunst die auch dabei ist = D
+   ========================================= */
+
+ .eifel-umgebung {
+   text-align: center;
+   background: var(--artHintergrundFarbe);
+   padding: 40px;
+   overflow-x: auto;
+   border-radius: 8px;
+ }
+
+ pre.art {
+   font-family: 'Courier New', monospace;
+   font-size: 12px;
+   line-height: 12px;
+   color: var(--eifelTurmFarbe);
+   display: inline-block;
+   text-align: left;
+ }
+
+/* =========================================
+   Spielmechanik Tabelle
+   ========================================= */
+
+ table {
+   width: 100%;
+   border-collapse: collapse;
+   margin-top: 15px;
+ }
+
+ th,
+ td {
+   text-align: left;
+   padding: 12px;
+   border-bottom: 1px solid var(--border);
+ }
+
+ th {
+   background-color: var(--thhintergrund);
+   font-weight: 600;
+ }
+
+/* =========================================
+   Handyeinstellungen
+   ========================================= */
+
+ @media (max-width: 800px) {
+   body {
+
+     padding: 15px;
+   }
+    .umgebung {
+   display: grid;
+   gap:10px;
+   }
+   
+   .label {
+     display: block;
+     margin-top: 5px;
+     width: fit-content;
+   }
+
+   ul.aufgabenBereich li {
+     flex-direction: column;
+     align-items: flex-start;
+   }
+ }
